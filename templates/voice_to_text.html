@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-body">
+                <h1 class="text-center mb-4 animated-title">Voice to Text</h1>
+                
+                <form method="POST" action="/voice_to_text" class="mb-4">
+                    <div class="mb-4">
+                        <label for="language" class="form-label">Select Language:</label>
+                        <select id="language" name="language" class="form-select" required>
+                            <option value="en">English</option>
+                            <option value="ta">Tamil</option>
+                            <option value="te">Telugu</option>
+                            <option value="hi">Hindi</option>
+                            <option value="fr">French</option>
+                        </select>
+                    </div>
+                    
+                    <div class="text-center">
+                        <button id="startListening" type="submit" class="btn btn-primary">
+                            <i class="fas fa-microphone me-2"></i>Start Listening
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Listening Indicator -->
+                <div id="listening-indicator" class="text-center my-4">
+                    <div class="spinner mb-3"></div>
+                    <p class="text-primary">Listening to your voice...</p>
+                </div>
+                
+                {% if result %}
+                <div class="result-section mt-4">
+                    <h2 class="h4 mb-3 animated-title">Transcription Result:</h2>
+                    <div class="card bg-light">
+                        <div class="card-body">
+                            <p class="mb-0">{{ result }}</p>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        
+        <div class="text-center mt-4">
+            <a href="/" class="btn btn-secondary">
+                <i class="fas fa-arrow-left me-2"></i>Back to Home
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Font Awesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+<!-- Custom JS for animations -->
+<script>
+document.getElementById('startListening').addEventListener('click', function() {
+    document.getElementById('listening-indicator').style.display = 'block';
+});
+</script>
+{% endblock %}

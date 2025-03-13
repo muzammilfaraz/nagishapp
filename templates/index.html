@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="text-center">
+    <h1 class="display-4 mb-4 animated-title">Welcome to <span class="text-primary">Nagish App</span></h1>
+    <p class="lead mb-5">Transform your voice to text or convert your text into natural speech with multiple language support.</p>
+    
+    <div class="row justify-content-center gap-4">
+        <div class="col-md-5">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <h3 class="card-title mb-4 animated-title">Voice to Text</h3>
+                    <p class="card-text mb-4">Convert your speech into text in multiple languages including English, Tamil, Telugu, and Hindi.</p>
+                    <a href="/voice_to_text" class="btn btn-primary">Start Speaking</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-5">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <h3 class="card-title mb-4 animated-title">Text to Voice</h3>
+                    <p class="card-text mb-4">Transform your text into natural speech with support for multiple languages.</p>
+                    <a href="/text_to_voice" class="btn btn-primary">Start Typing</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
